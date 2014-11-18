@@ -27,6 +27,11 @@ and open the template in the editor.
 			}
 			alert('childBrowser has loaded ' + url);
 			alert('childBrowser has loaded ' + params['access_token']);
+			localStorage.setItem('access_token',params['access_token']);
+			var vk_url = 'https://api.vk.com/method/users.get?user_id=66748&v=5.26&access_token='+params['access_token'];
+			$.get(vk_url,function(d){
+			    console.log(d);
+			},'json');
 		    }
 		};
 		
