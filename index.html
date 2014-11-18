@@ -19,7 +19,7 @@ and open the template in the editor.
 		    alert('childBrowser has loaded ' + url);
 		};
 		
-		$(document).on('click','.get_token',function(){
+		$(document).on('touchstart','.get_token',function(){
 		    alert('test');
 		    window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: true});
 		    return false;
