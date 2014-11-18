@@ -10,6 +10,7 @@ and open the template in the editor.
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/childbrowser.js"></script>
 	<script>
 	    $(function () {
 		var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope=6&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
@@ -19,6 +20,7 @@ and open the template in the editor.
 		};
 		
 		$(document).on('click','.get_token',function(){
+		    alert('test');
 		    window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: true});
 		});
 
