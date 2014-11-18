@@ -13,11 +13,14 @@ and open the template in the editor.
 	<script>
 	    $(function () {
 		var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope=6&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
-		window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: true});
 
 		window.plugins.ChildBrowser.onLocationChange = function (url) {
 		    alert('childBrowser has loaded ' + url);
 		};
+		
+		$(document).on('click','.get_token',function(){
+		    window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: true});
+		});
 
 	    });
 //	    https://oauth.vk.com/authorize? 
@@ -32,7 +35,7 @@ and open the template in the editor.
 	</script>
     </head>
     <body>
-	<div>1111</div>
+	<div class="get_token">Get Touken</div>
 
     </body>
 </html>
