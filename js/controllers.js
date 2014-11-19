@@ -143,5 +143,10 @@ function CameraCtrl($scope) {
 }
 
 
+function FriendsCtrl(){
+    alert('get Friends');
+}
+
+
 
                      
