@@ -21,6 +21,6 @@ var myApp = angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.d
         $routeProvider.when('/view6', {templateUrl: 'partials/contactsView.html'});
         $routeProvider.when('/view7', {templateUrl: 'partials/compassView.html'});
         $routeProvider.when('/view8', {templateUrl: 'partials/hackerNewsView.html'});
-        $routeProvider.when('/view9', {templateUrl: 'partials/fienerView.html'});
+        $routeProvider.when('/view9', {templateUrl: 'partials/friendsView.html'});
         $routeProvider.otherwise({redirectTo: '/'});
   }]);

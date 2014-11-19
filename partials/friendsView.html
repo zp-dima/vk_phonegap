@@ -1,0 +1,26 @@
+<!--<ng:include src="'partials/header.html'"></ng:include>-->
+<div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+            <span class="topcoat-icon home-icon"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Geolocation</h1>
+    </div>
+    <div class="topcoat-navigation-bar__item right quarter">
+        <a class="topcoat-icon-button--quiet" ng-click="changeSettings()">
+            <span class="topcoat-icon settings-icon"></span>
+        </a>
+    </div>
+</div>
+
+<div class="pad" ng-controller="GeolocationCtrl">
+    <div class="scroll">
+	test
+    </div>
+</div>
+
+<p class='note'>Note: the above container is also an example of how to create a fixed container with scrolling enabled via the scroll class (see index.css)</p>
+<ng-include src="'partials/settingsOverlay.html'"></ng-include>
+
