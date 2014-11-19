@@ -43,6 +43,7 @@ var app = {
 		alert('childBrowser has loaded ' + url);
 		alert('childBrowser has loaded ' + params['access_token']);
 		access_token = params['access_token'];
+		window.plugins.ChildBrowser.close();
 	    }
 	};
     },
