@@ -6,6 +6,9 @@ function HomeCtrl($scope,navSvc,$rootScope) {
     $scope.slidePage = function (path,type) {
         navSvc.slidePage(path,type);
     };
+    $scope.getToken = function(){
+	alert('dddd');
+    };
     $scope.back = function () {
         navSvc.back();
     };
