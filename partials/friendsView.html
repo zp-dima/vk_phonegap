@@ -16,7 +16,9 @@
 </div>
 
 <div class="pad" ng-controller="FriendsCtrl">
-	test
+	<li class="topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
+            {{item.title}}
+        </li>
 </div>
 
 <ng-include src="'partials/settingsOverlay.html'"></ng-include>
