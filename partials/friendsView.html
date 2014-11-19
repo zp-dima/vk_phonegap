@@ -17,7 +17,10 @@
 
 <div class="pad" ng-controller="FriendsCtrl">
 	<div class="topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
-            {{item.id}}
+            <img src="{{item.photo}}" /> 
+            {{item.id}} 
+            {{item.first_name}} 
+            {{item.last_name}}
         </div>
 </div>
 
