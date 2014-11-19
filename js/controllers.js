@@ -7,7 +7,8 @@ function HomeCtrl($scope,navSvc,$rootScope) {
         navSvc.slidePage(path,type);
     };
     $scope.getToken = function(){
-	alert('dddd');
+	var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope=6&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
+	window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: false});
     };
     $scope.back = function () {
         navSvc.back();

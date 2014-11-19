@@ -16,27 +16,40 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var access_token = '';
 var app = {
     // Application Constructor
-    initialize: function() {
-        this.bindEvents();
+    initialize: function () {
+	this.bindEvents();
     },
-    
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('load', this.onLoad, false);
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-        window.addEventListener("orientationchange", orientationChange, true);
+    bindEvents: function () {
+	document.addEventListener('load', this.onLoad, false);
+	document.addEventListener('deviceready', this.onDeviceReady, false);
+	window.addEventListener("orientationchange", orientationChange, true);
     },
-    onLoad: function() {
-        
+    onLoad: function () {
+	window.plugins.ChildBrowser.onLocationChange = function (url) {
+	    if (url.indexOf('//oauth.vk.com/blank.html#access_token') >= 0) {
+		var params = url.split("#")[1];
+		var _params = params.split('&');
+		console.log(_params);
+		params = [];
+		for (var key in _params) {
+		    var item = _params[key].split("=");
+		    params[item[0]] = item[1];
+		}
+		alert('childBrowser has loaded ' + url);
+		alert('childBrowser has loaded ' + params['access_token']);
+		access_token = params['access_token'];
+	    }
+	};
     },
-   
     // deviceready Event Handler
-    onDeviceReady: function() {
-        /*angular.element(document).ready(function() {
-            angular.bootstrap(document);
-        });*/
+    onDeviceReady: function () {
+	/*angular.element(document).ready(function() {
+	 angular.bootstrap(document);
+	 });*/
     }
 };
