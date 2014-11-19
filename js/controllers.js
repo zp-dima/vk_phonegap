@@ -147,7 +147,7 @@ function FriendsCtrl($scope) {
     var vk_url = 'https://api.vk.com/method/friends.get?v=5.26&access_token=' + access_token;
     console.log('vk_url', vk_url);
     jx.load(vk_url, function (data) {
-//            console.log(JSON.stringify(data));
+            alert(JSON.stringify(data));
 	console.log(data);
 //            $rootScope.items = data.items;
 //            $scope.$apply();
