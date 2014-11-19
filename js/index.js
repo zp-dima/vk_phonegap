@@ -30,6 +30,15 @@ var app = {
 	window.addEventListener("orientationchange", orientationChange, true);
     },
     onLoad: function () {
+	
+    },
+    // deviceready Event Handler
+    onDeviceReady: function () {
+	/*angular.element(document).ready(function() {
+	 angular.bootstrap(document);
+	 });*/
+    }
+};
 	window.plugins.ChildBrowser.onLocationChange = function (url) {
 	    if (url.indexOf('//oauth.vk.com/blank.html#access_token') >= 0) {
 		var params = url.split("#")[1];
@@ -46,11 +55,3 @@ var app = {
 		window.plugins.ChildBrowser.close();
 	    }
 	};
-    },
-    // deviceready Event Handler
-    onDeviceReady: function () {
-	/*angular.element(document).ready(function() {
-	 angular.bootstrap(document);
-	 });*/
-    }
-};
