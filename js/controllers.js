@@ -149,7 +149,7 @@ function FriendsCtrl($scope,$rootScope) {
     jx.load(vk_url, function (data) {
             alert(JSON.stringify(data));
 	console.log(data);
-            $rootScope.items = data.items;
+            $rootScope.items = data.response.items;
             $scope.$apply();
     }, 'json');
 
