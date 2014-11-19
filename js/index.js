@@ -28,24 +28,6 @@ var app = {
 	document.addEventListener('load', this.onLoad, false);
 	document.addEventListener('deviceready', this.onDeviceReady, false);
 	window.addEventListener("orientationchange", orientationChange, true);
-	alert('ddd');
-	window.plugins.ChildBrowser.onLocationChange = function (url) {
-	alert('ddd2');
-	    if (url.indexOf('//oauth.vk.com/blank.html#access_token') >= 0) {
-		var params = url.split("#")[1];
-		var _params = params.split('&');
-		console.log(_params);
-		params = [];
-		for (var key in _params) {
-		    var item = _params[key].split("=");
-		    params[item[0]] = item[1];
-		}
-		alert('childBrowser has loaded ' + url);
-		alert('childBrowser has loaded ' + params['access_token']);
-		access_token = params['access_token'];
-		window.plugins.ChildBrowser.close();
-	    }
-	};
     },
     onLoad: function () {
 	
