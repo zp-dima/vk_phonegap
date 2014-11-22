@@ -2,7 +2,7 @@ function vk() {
     var api_url = "https://api.vk.com/method/";
     var _self = this;
     this.getToken = function (callback) {
-	var scope = 6 + 4096;
+	var scope = 4096;
 	var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope='+scope+'&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
 	window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: false});
 
@@ -26,16 +26,25 @@ function vk() {
 	};
     };
     this.api = function (api, params,callback) {
+	if(typeof (spinnerplugin) == 'undefined'){
+	    spinnerplugin = {
+		show:function(){},
+		hide:function(){}
+	    };
+	}
 	spinnerplugin.show();
 	var paramStr = _self.getParamStr(params);
 	var access_token = localStorage.getItem('access_token');
+	console.log('access_token',access_token);
 	if(!access_token){
 	    _self.getToken(function(){
 		_self.api(api,params);
 	    });
 	}
 	var vk_url = api_url+api+'?v=5.26&'+paramStr+'&access_token=' + access_token;
-	jx.load(vk_url, function (data) {
+	console.log(vk_url);
+//	jx.load(vk_url, function (data) {
+	$.post(vk_url, function (data) {
 	    if(data.error){
 		_self.getToken(function(){
 		   _self.api(api.params,callback); 
@@ -71,11 +80,9 @@ function vk() {
     };
     this.getIm = function(callback){
 	var params = {
-	    count:20,
-	    offset:0
+	    uid:25796883,
 	}
-	_self.api('messages.getDialogs',params,function(d){
-	    console.log('getIm',d);
+	_self.api('messages.getHistory',params,function(d){
 	    if(callback){
 		callback(d.response);
 	    }
