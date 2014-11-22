@@ -2,7 +2,7 @@ function vk() {
     var api_url = "https://api.vk.com/method/";
     var _self = this;
     this.getToken = function (callback) {
-	var scope = 6+4096;
+	var scope = 6 + 4096;
 	var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope='+scope+'&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
 	window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: false});
 
@@ -36,7 +36,13 @@ function vk() {
 	}
 	var vk_url = api_url+api+'?v=5.26&'+paramStr+'&access_token=' + access_token;
 	jx.load(vk_url, function (data) {
+	    if(data.error){
+		_self.getToken(function(){
+		   _self.api(api.params,callback); 
+		});
+	    }
 	    spinnerplugin.hide();
+	    
 	    if(callback){
 		callback(data);
 	    }
@@ -64,10 +70,14 @@ function vk() {
 	});
     };
     this.getIm = function(callback){
-	_self.api('messages.getDialogs',null,function(d){
+	var params = {
+	    count:20,
+	    offset:0
+	}
+	_self.api('messages.getDialogs',params,function(d){
 	    console.log('getIm',d);
 	    if(callback){
-		callback(d);
+		callback(d.response);
 	    }
 	});
     };
