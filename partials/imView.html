@@ -16,7 +16,11 @@
 </div>
 
 <div class="pad" ng-controller="ImCtrl">
-    ddddddddd
+    	<div class="topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
+            <img style="max-width: 50px; max-height: 50px;" src="{{item.photo_50}}" /> 
+            {{item.from_id}} 
+            {{item.body}}
+        </div>
 </div>
 
 <ng-include src="'partials/settingsOverlay.html'"></ng-include>

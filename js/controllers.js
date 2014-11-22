@@ -139,7 +139,8 @@ function FriendsCtrl($scope, $rootScope) {
 
 function ImCtrl($scope, $rootScope){
     VK.getIm(function(d){
-	console.log(d);
+	$rootScope.items = d.items;
+	$scope.$apply();
     });
 }
 

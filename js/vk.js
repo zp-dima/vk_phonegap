@@ -80,9 +80,9 @@ function vk() {
     };
     this.getIm = function(callback){
 	var params = {
-	    uid:25796883,
+	   
 	}
-	_self.api('messages.getHistory',params,function(d){
+	_self.api('messages.getDialogs',params,function(d){
 	    if(callback){
 		callback(d.response);
 	    }
