@@ -132,13 +132,15 @@ function FriendsCtrl($scope, $rootScope) {
 
     $scope.loadItem = function (item) {
 	navigator.notification.alert(item.id, function () {
-	    console.log("Alert success")
+	    console.log("Alert success");
 	}, "My Alert", "Close");
     };
 }
 
 function ImCtrl($scope, $rootScope){
-    
+    VK.getIm(function(d){
+	console.log(d);
+    });
 }
 
 
