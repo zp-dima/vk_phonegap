@@ -125,11 +125,6 @@ function CameraCtrl($scope) {
 
 
 function FriendsCtrl($scope, $rootScope) {
-//    var vk_url = 'https://api.vk.com/method/friends.get?v=5.26&fields=uid,first_name,last_name,nickname,photo_50&access_token=' + access_token;
-//    jx.load(vk_url, function (data) {
-//            $rootScope.items = data.response.items;
-//            $scope.$apply();
-//    }, 'json');
     VK.getFriends(function (data) {
 	$rootScope.items = data.response.items;
 	$scope.$apply();
@@ -140,8 +135,10 @@ function FriendsCtrl($scope, $rootScope) {
 	    console.log("Alert success")
 	}, "My Alert", "Close");
     };
+}
 
-//    alert('get Friends');
+function ImCtrl($scope, $rootScope){
+    
 }
 
 

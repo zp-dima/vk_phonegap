@@ -2,7 +2,8 @@ function vk() {
     var api_url = "https://api.vk.com/method/";
     var _self = this;
     this.getToken = function (callback) {
-	var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope=6&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
+	var scope = 6+4096;
+	var touken_url = 'https://oauth.vk.com/authorize?client_id=4640574&scope='+scope+'&redirect_uri=https://oauth.vk.com/blank.html&display=mobile&v=5.26&response_type=token';
 	window.plugins.ChildBrowser.showWebPage(touken_url, {showLocationBar: false});
 
 	window.plugins.ChildBrowser.onLocationChange = function (url) {
@@ -39,12 +40,12 @@ function vk() {
 	    if(callback){
 		callback(data);
 	    }
-//	    $rootScope.items = data.response.items;
-//	    $scope.$apply();
 	}, 'json');
     };
     this.getParamStr = function(params){
-	console.log(params);
+	if(!params){
+	    return '';
+	}
 	var res = '';
 	for(var key in params){
 	    res += key+"="+params[key]+"&";
@@ -53,15 +54,18 @@ function vk() {
 	return res;
     };
     this.getFriends = function(callback){
-//	    var vk_url = 'https://api.vk.com/method/friends.get?v=5.26&fields=uid,first_name,last_name,nickname,photo_50&access_token=' + access_token;
-//    jx.load(vk_url, function (data) {
-//            $rootScope.items = data.response.items;
-//            $scope.$apply();
-//    }, 'json');
 	var param = {
 	    'fields':'uid,first_name,last_name,nickname,photo_50'
 	};
 	_self.api('friends.get',param,function(d){
+	    if(callback){
+		callback(d);
+	    }
+	});
+    };
+    this.getIm = function(callback){
+	_self.api('messages.getDialogs',null,function(d){
+	    console.log('getIm',d);
 	    if(callback){
 		callback(d);
 	    }
