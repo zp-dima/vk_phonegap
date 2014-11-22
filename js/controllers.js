@@ -21,9 +21,8 @@ function HomeCtrl($scope,navSvc,$rootScope) {
 		    var item = _params[key].split("=");
 		    params[item[0]] = item[1];
 		}
-		alert('childBrowser has loaded ' + url);
-		alert('childBrowser has loaded ' + params['access_token']);
 		access_token = params['access_token'];
+		localStorage.setItem('access_token',access_token);
 		window.plugins.ChildBrowser.close();
 	    }
 	};

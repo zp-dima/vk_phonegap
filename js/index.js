@@ -28,6 +28,7 @@ var app = {
 	document.addEventListener('load', this.onLoad, false);
 	document.addEventListener('deviceready', this.onDeviceReady, false);
 	window.addEventListener("orientationchange", orientationChange, true);
+	alert('ddddddddd');
     },
     onLoad: function () {
 	
