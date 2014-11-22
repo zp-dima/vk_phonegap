@@ -25,6 +25,7 @@ function vk() {
 	};
     };
     this.api = function (api, params,callback) {
+	spinnerplugin.show();
 	var paramStr = _self.getParamStr(params);
 	var access_token = localStorage.getItem('access_token');
 	if(!access_token){
@@ -34,6 +35,7 @@ function vk() {
 	}
 	var vk_url = api_url+api+'?v=5.26&'+paramStr+'&access_token=' + access_token;
 	jx.load(vk_url, function (data) {
+	    spinnerplugin.hide();
 	    if(callback){
 		callback(data);
 	    }

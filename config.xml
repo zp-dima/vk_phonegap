@@ -63,6 +63,7 @@
     <gap:plugin name="org.apache.cordova.vibration" />
     
     <gap:plugin name="com.phonegap.plugins.childbrowser" version="5.0.0" />
+    <gap:plugin name="it.mobimentum.phonegapspinnerplugin" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
