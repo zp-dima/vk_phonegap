@@ -17,8 +17,8 @@
 
 <div class="pad" ng-controller="ImCtrl">
     	<div class="topcoat-list__item" ng-repeat="item in items" ng-click="loadItem(item)">
-            {{item.from_id}} 
-            {{item.body}}
+            {{item.message.user_id}} 
+            {{item.message.body}}
         </div>
 </div>
 

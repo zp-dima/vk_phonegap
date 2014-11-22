@@ -80,7 +80,7 @@ function vk() {
     };
     this.getIm = function(callback){
 	var params = {
-	   
+	   count:200
 	}
 	_self.api('messages.getDialogs',params,function(d){
 	    if(callback){
